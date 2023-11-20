@@ -1,0 +1,40 @@
+body {
+    background-image: conic-gradient(from -50deg at 48.91% 47.88%, #ffffff 0deg, #EFFFF6 72.0000010728836deg, #EAFCFD 144.0000021457672deg, #F9E9F1 216.00000858306885deg, #F3F4FF 288.0000042915344deg, #E8F4FB 360deg);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    flex: 1;
+    overflow-x: auto;
+}
+
+.mat-table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse;
+}
+
+.mat-table td, .mat-table th {
+    padding: 0.5rem; /* Ajusta el tamaño del padding según sea necesario */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilos específicos para pantallas más pequeñas utilizando media queries */
+@media (max-width: 768px) {
+    .mat-table td, .mat-table th {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

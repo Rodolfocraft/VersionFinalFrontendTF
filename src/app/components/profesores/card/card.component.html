@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h2>Profesores</h2>
+    <div class="container">
+      
+      
+        <mat-card class="profesores" *ngFor="let p of profesores">
+            <mat-card-header>
+              <mat-card-title>{{p.nombre}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image class="imagen" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>ID: {{p.id}}</p>
+              <p>Nombres y Apellidos: {{p.nombre}} {{p.apellido}}</p>
+              <p>Especialidad: {{p.especialidad}}</p>
+              <p>Grado: {{p.grado}}</p>
+              <p>Años de experiencia: {{p.aniosexperiencia}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</body>
+</html>

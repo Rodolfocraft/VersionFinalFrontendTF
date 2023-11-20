@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <h2 style="text-align: center">Lista de Profesores</h2>
+      <div style="text-align: right">
+        <button
+          mat-raised-button
+          color="primary"
+          routerLink="/components/profesores/nuevo"
+        >
+          Nuevo
+        </button>
+      </div>
+      <mat-form-field>
+        <input matInput (keyup)="filter($event)" placeholder="buscar" />
+      </mat-form-field>
+      <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>id</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="codigoprofesor">
+          <th mat-header-cell *matHeaderCellDef>CodigoProfesor</th>
+          <td mat-cell *matCellDef="let element">{{ element.codProfesor }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="apellido">
+          <th mat-header-cell *matHeaderCellDef>Apellido</th>
+          <td mat-cell *matCellDef="let element">{{ element.apellido }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fechanac">
+          <th mat-header-cell *matHeaderCellDef>Fecha Nacimiento</th>
+          <td mat-cell *matCellDef="let element">{{ element.fechanac }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="especialidad">
+          <th mat-header-cell *matHeaderCellDef>Especialidad</th>
+          <td mat-cell *matCellDef="let element">{{ element.especialidad }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="grado">
+          <th mat-header-cell *matHeaderCellDef>Grado</th>
+          <td mat-cell *matCellDef="let element">{{ element.grado }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="genero">
+          <th mat-header-cell *matHeaderCellDef>Genero</th>
+          <td mat-cell *matCellDef="let element">{{ element.genero }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="aniosexperiencia">
+          <th mat-header-cell *matHeaderCellDef>Años Experiencia </th>
+          <td mat-cell *matCellDef="let element">{{ element.aniosexperiencia }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion01">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="warn"
+              [routerLink]="['ediciones', element.id]"
+            >
+              Actualizar
+            </button>
+          </td></ng-container
+        >
+        <ng-container matColumnDef="accion02">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="eliminar(element.id)"
+            >
+              Eliminar
+            </button>
+          </td></ng-container
+        >
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        showFirstLastButtons
+      ></mat-paginator>
+    </div>
+  </body>
+</html>

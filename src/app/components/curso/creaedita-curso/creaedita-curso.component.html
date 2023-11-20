@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" style="text-align: center">
+      <div class="subcontainer">
+
+        <h2>Registro de curso</h2>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>id</mat-label>
+            <input matInput placeholder="codigo" formControlName="id" />
+          </mat-form-field>
+  
+          <br />
+  
+          <mat-form-field class="example-full-width" >
+            <mat-label>codCurso</mat-label>
+            <input
+              matInput
+              placeholder="codigocurso"
+              formControlName="codCurso"
+            />
+          </mat-form-field>
+  
+          <br />
+  
+          <mat-form-field class="example-full-width" >
+            <mat-label>nombre</mat-label>
+            <input matInput placeholder="nombrecurso" formControlName="nombreCurso" />
+            <mat-error
+              *ngIf="obtenerControlCampo('nombreCurso')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+  
+          <br />
+  
+          <mat-form-field class="example-full-width" >
+            <mat-label>Creditos</mat-label>
+            <input matInput placeholder="creditos" formControlName="creditos" />
+            <mat-error
+              *ngIf="obtenerControlCampo('creditos')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br />
+
+          <mat-form-field class="example-full-width" >
+            <mat-label>Semestre</mat-label>
+            <input matInput placeholder="semestre" formControlName="semestre" />
+            <mat-error
+              *ngIf="obtenerControlCampo('semestre')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br />
+
+          <mat-form-field class="example-full-width" >
+            <mat-label>Horas Dictadas</mat-label>
+            <input matInput placeholder="horasdictadas" formControlName="horasdictadas" />
+            <mat-error
+              *ngIf="obtenerControlCampo('horasdictadas')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br />
+
+          <mat-form-field class="example-full-width" >
+            <mat-label>Modalidad</mat-label>
+            <mat-select formControlName="modalidad">
+              <mat-option *ngFor="let t of modalidad" [value]="t.value">
+                {{ t.viewValue }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('modalidad')?.errors?.['required']">
+              Debe seleccionar la modalidad
+            </mat-error>
+          </mat-form-field>
+
+          <br />
+
+          <button mat-raised-button class="aceptar" color="primary">Aceptar</button>
+          <button mat-raised-button class="cancelar" color="warn" routerLink="/components/curso">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+        </form>
+      </div>
+      </div>
+</body>
+</html>

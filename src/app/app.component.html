@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
+
+<mat-toolbar class="navbar"  color="primary" *ngIf="verificar()">
+    <button mat-button class="botonconimagen" routerLink="/home" ><img src="https://i.postimg.cc/nhg6KVtC/Logo-Sin-Fondo.png" alt="Home"></button>
+    <button mat-button [matMenuTriggerFor]="menuProfesores">Profesores</button>
+    <button mat-button [matMenuTriggerFor]="menuCurso">Curso</button>
+    <button mat-button [matMenuTriggerFor]="menuCarreraProfesional">Carrera Profesional</button>
+    <button mat-button [matMenuTriggerFor]="menuUniversidad" *ngIf="validarRol()">Universidad</button>
+    <button mat-button [matMenuTriggerFor]="menuAlumno">Alumno</button>
+    <button mat-button [matMenuTriggerFor]="menuCalificacion">Calificacion Docente</button>
+    <button mat-button [matMenuTriggerFor]="menuAdministrador" *ngIf="role == 'ADMIN'">Administrador</button>
+    <button mat-button [matMenuTriggerFor]="menuReporte" *ngIf="role == 'ADMIN'">Reportes</button>
+    <button mat-button [matMenuTriggerFor]="menuPerfil"><i class="fas fa-user-circle fa-lg" style="color: #000000;"></i></button>
+    
+  </mat-toolbar>
+
+  <mat-menu #menuProfesores="matMenu">
+    <button mat-menu-item routerLink="components/profesores/nuevo">Registrar</button>
+    <button mat-menu-item routerLink="components/profesores" *ngIf="role == 'ADMIN'">Listar</button>
+    <button mat-menu-item routerLink="components/profesores/card">Card</button>
+    <!-- Agrega más elementos de menú si es necesario -->
+  </mat-menu>
+  <mat-menu #menuCurso="matMenu">
+    <button mat-menu-item routerLink="components/curso/nuevo" >Registrar</button>
+    <button mat-menu-item routerLink="components/curso">Listar</button>
+    <!-- Agrega más elementos de menú si es necesario -->
+  </mat-menu>
+  <mat-menu #menuCarreraProfesional="matMenu">
+    <button mat-menu-item routerLink="components/CarrerasProfesionales/nuevo" >Registrar</button>
+    <button mat-menu-item routerLink="components/CarrerasProfesionales">Listar</button>
+    <!-- Agrega más elementos de menú si es necesario -->
+  </mat-menu>
+  <mat-menu #menuUniversidad="matMenu">
+    <button mat-menu-item routerLink="components/universidad/nuevo">Registrar</button>
+    <button mat-menu-item routerLink="components/universidad" *ngIf="role == 'ADMIN'">Listar</button>
+    <button mat-menu-item routerLink="components/universidad/card">Card</button>
+    <!-- Agrega más elementos de menú si es necesario -->
+  </mat-menu>
+  <mat-menu #menuAlumno="matMenu">
+    <button mat-menu-item routerLink="components/alumno/nuevo" >Registrar</button>
+    <button mat-menu-item routerLink="components/alumno">Listar</button>
+    <!-- Agrega más elementos de menú si es necesario -->
+  </mat-menu>
+ 
+  <mat-menu #menuCalificacion="matMenu">
+    <button mat-menu-item routerLink="components/calificaciondocente/nuevo" >Registrar</button>
+    <button mat-menu-item routerLink="components/calificaciondocente" >Listar</button>
+    <!-- Agrega más elementos de menú si es necesario -->
+  </mat-menu>
+
+  <mat-menu #menuAdministrador="matMenu">
+    <button mat-menu-item routerLink="components/administrador/nuevo" *ngIf="role == 'ADMIN'">Registrar</button>
+    <button mat-menu-item routerLink="components/administrador" *ngIf="role == 'ADMIN'">Listar</button>
+    <!-- Agrega más elementos de menú si es necesario -->
+  </mat-menu>
+
+  <mat-menu #menuReporte="matMenu">
+    <button mat-menu-item routerLink="components/reporte/1">Reporte 01</button>
+    <button mat-menu-item routerLink="components/reporte/2">Reporte 02</button>
+    <button mat-menu-item routerLink="components/reporte/3">Reporte 03</button>
+    <button mat-menu-item routerLink="components/reporte/4">Reporte 04</button>
+    <button mat-menu-item routerLink="components/reporte/5">Reporte 05</button>
+    <!-- Agrega más elementos de menú si es necesario -->
+  </mat-menu>
+  <mat-menu #menuPerfil="matMenu">
+    <button mat-menu-item routerLink="/home" (click)="cerrar()">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar sesión</span>
+  
+    </button>
+    <button mat-menu-item >Rol:
+      <span>{{role}}</span>
+    </button>
+    <!-- Agrega más elementos de menú si es necesario -->
+  </mat-menu>
+<router-outlet></router-outlet>

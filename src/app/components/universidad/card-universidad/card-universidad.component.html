@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Universidades</h2>
+    <div class="container">
+        <mat-card class="universidad" *ngFor="let u of universidad">
+            <mat-card-header>
+              <mat-card-title>{{u.nombreUniversidad}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image class="imagen" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>Descripcion: {{u.descripcion}}</p>
+              <p>Dirección: {{u.direccion}}</p>
+              <p>Sede: {{u.sede}}</p>
+              <p>Tipo de Universidad: {{u.tipo}}</p>
+              <p>Fecha de fundación: {{u.fechafundacion}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button><i class="far fa-thumbs-up fa-lg"></i></button>
+              <button mat-button><i class="fas fa-share-square fa-lg"></i></button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</body>
+</html>

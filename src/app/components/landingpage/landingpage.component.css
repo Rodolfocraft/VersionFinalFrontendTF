@@ -1,0 +1,51 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('vacaciones-escuelas-nl-2.jpg');
+    background-size: cover;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.Texto {
+    text-align: center;
+    max-width: 80%;
+    width: 50%;
+}
+
+.Texto h2, .Texto p {
+    margin: 0.5em 0;
+}
+
+.Texto h2{
+    font-size: xx-large;
+}
+
+.boton {
+    display: inline-block;
+    background-color: #008CBA;
+    color: white;
+    padding: 14px 20px;
+    margin: 10px 2px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    border-radius: 12px;
+}
+
+.boton:hover {
+    background-color: white;
+    color: black;
+}
+
+div{
+    text-align: left;
+}

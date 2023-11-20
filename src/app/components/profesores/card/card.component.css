@@ -1,0 +1,26 @@
+.profesores {
+    max-width: 325px;
+    margin: 20px;
+}
+
+.imagen {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container > * {
+    flex: 1 1 325px;
+}
+
+h2 {
+    margin-bottom: 0px;
+    margin-top: 20px;
+    text-align: center;
+}
+

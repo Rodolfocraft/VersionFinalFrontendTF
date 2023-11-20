@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Volkhov&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.component.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="subcontainer">
+
+        <div class="login-title"><h2>Login</h2></div>
+  
+        <div class="login-input">
+          <mat-form-field class="example-full-width">
+            <mat-label>Usuario</mat-label>
+            <input matInput placeholder="Username" [(ngModel)]="username" />
+          </mat-form-field>
+          <br />
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              placeholder="Password"
+              [(ngModel)]="password"
+            />
+          </mat-form-field>
+        </div>
+        <br />
+        <button mat-raised-button (click)="login()" class="custom-button" id="BotonLogin">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

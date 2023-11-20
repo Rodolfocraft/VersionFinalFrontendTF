@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="login-title">Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <div class="subcontainer">
+      <h2>Registro de administradores</h2>
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        
+        
+        <mat-form-field class="example-full-width adminselect">
+            <mat-label>Usuarios</mat-label>
+            <mat-select formControlName="usuario">
+              <mat-option *ngFor="let u of listaUsuarios" [value]="u.id">
+                {{ u.nombre }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('usuario')?.errors?.['required']"
+            >
+              El usuario es obligatorio.
+            </mat-error>
+        </mat-form-field>
+
+          <br />
+          <br />
+        <button mat-raised-button class="aceptar" color="primary">Aceptar</button>
+        <button mat-raised-button class="cancelar" color="warn" routerLink="/components/administrador">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </div>
+  </body>
+</html>
+

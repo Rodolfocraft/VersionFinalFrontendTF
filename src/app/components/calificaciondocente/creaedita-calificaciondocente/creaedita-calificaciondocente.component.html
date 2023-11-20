@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="login-title">Document</title>
+</head>
+<body>
+    <div class="container" style="text-align: center">
+      <div class="subcontainer">
+
+        <h2>Registro de Calificacion Docente</h2>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>id</mat-label>
+            <input matInput placeholder="id" formControlName="id" />
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Alumno</mat-label>
+            <mat-select formControlName="alumno">
+              <mat-option
+                *ngFor="let a of listaalumno"
+                [value]="a.id">
+                {{ a.usuarios.nombre }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('alumno')?.errors?.['required']">
+              El alumno es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Profesor</mat-label>
+            <mat-select formControlName="profesor">
+              <mat-option
+                *ngFor="let p of listaprofesor"
+                [value]="p.id">
+                {{ p.nombre }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('profesor')?.errors?.['required']">
+              El profesor es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Curso</mat-label>
+            <mat-select formControlName="curso">
+              <mat-option
+                *ngFor="let c of listacurso"
+                [value]="c.id">
+                {{ c.nombreCurso }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('curso')?.errors?.['required']">
+              El curso es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Carrera Profesional</mat-label>
+            <mat-select formControlName="carrera">
+              <mat-option
+                *ngFor="let c of listacarrera"
+                [value]="c.id">
+                {{ c.nombreCarreraProfesional }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('carrera')?.errors?.['required']">
+              La carrera es obligatoria.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Universidad</mat-label>
+            <mat-select formControlName="universidad">
+              <mat-option
+                *ngFor="let u of listauniversidad"
+                [value]="u.id">
+                {{ u.nombreUniversidad }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('universidad')?.errors?.['required']">
+              La universidad es obligatoria.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field class="example-full-width" >
+            <mat-label>Valoracion</mat-label>
+            <input matInput placeholder="valoracion" formControlName="valoracion" />
+            <mat-error
+              *ngIf="obtenerControlCampo('valoracion')?.errors?.['required']"
+            >
+              La valoración es obligatoria.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field class="example-full-width" >
+            <mat-label>Recomendacion</mat-label>
+            <input matInput placeholder="recomendacion" formControlName="recomendacion" />
+            <mat-error
+              *ngIf="obtenerControlCampo('recomendacion')?.errors?.['required']"
+            >
+              La recomendación es obligatoria.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field appearance="fill" class="example-full-width">
+            <input
+              matInput
+              placeholder="Ingrese fecha"
+              [matDatepicker]="picker"
+              formControlName="fechapublicacion"
+              [max]="maxFecha"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+              *ngIf="obtenerControlCampo('fechapublicacion')?.errors?.['required']"
+            >
+              La fecha de publicacion es obligatoria.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Administrador</mat-label>
+            <mat-select formControlName="administrador">
+              <mat-option
+                *ngFor="let a of listaadministrador"
+                [value]="a.id">
+                {{ a.usuarios.nombre }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('administrador')?.errors?.['required']">
+              El Administrador es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <button mat-raised-button class="aceptar" color="primary">Aceptar</button>
+          <button mat-raised-button class="cancelar" routerLink="/components/calificaciondocente">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+        </form>
+      </div>
+      </div>
+</body>
+</html>

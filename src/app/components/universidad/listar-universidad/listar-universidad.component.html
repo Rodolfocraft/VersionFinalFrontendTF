@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <h2 style="text-align: center">Lista de Universidades</h2>
+        <div style="text-align: right">
+          <button mat-raised-button color="primary" routerLink="/components/universidad/nuevo">
+            Nuevo
+          </button>
+        </div>
+        <mat-form-field>
+          <input matInput (keyup)="filter($event)" placeholder="buscar" />
+        </mat-form-field>
+        <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+          <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+  
+          <!-- Position Column -->
+          <ng-container matColumnDef="codigo">
+            <th mat-header-cell *matHeaderCellDef>codigo</th>
+            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+          </ng-container>
+  
+          <!-- Name Column -->
+          <ng-container matColumnDef="codigouniversidad">
+            <th mat-header-cell *matHeaderCellDef>codigouniversidad</th>
+            <td mat-cell *matCellDef="let element">{{ element.codUniversidad }}</td>
+          </ng-container>
+  
+          <!-- Weight Column -->
+          <ng-container matColumnDef="nombreuniversidad">
+            <th mat-header-cell *matHeaderCellDef>nombreuniversidad</th>
+            <td mat-cell *matCellDef="let element">{{ element.nombreUniversidad }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="sede">
+            <th mat-header-cell *matHeaderCellDef>Sede</th>
+            <td mat-cell *matCellDef="let element">{{ element.sede }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+            <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechafundacion">
+            <th mat-header-cell *matHeaderCellDef>Fecha Fundacion</th>
+            <td mat-cell *matCellDef="let element">{{ element.fechafundacion }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="direccion">
+            <th mat-header-cell *matHeaderCellDef>Direccion</th>
+            <td mat-cell *matCellDef="let element">{{ element.direccion }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef>Tipo</th>
+            <td mat-cell *matCellDef="let element">{{ element.tipo }}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="accion01">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                mat-raised-button
+                color="warn"
+                [routerLink]="['ediciones', element.id]"
+              >
+                Actualizar
+              </button>
+            </td></ng-container
+          >
+          <ng-container matColumnDef="accion02">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                mat-raised-button
+                color="accent"
+                (click)="eliminar(element.id)"
+              >
+                Eliminar
+              </button>
+            </td></ng-container
+          >
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          showFirstLastButtons
+        ></mat-paginator>
+      </div>
+
+    
+
+
+
+
+          
+
+</body>
+</html>

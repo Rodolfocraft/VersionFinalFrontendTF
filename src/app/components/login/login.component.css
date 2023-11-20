@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-image: conic-gradient(from -50deg at 48.91% 47.88%, #ffffff 0deg, #EFFFF6 72.0000010728836deg, #EAFCFD 144.0000021457672deg, #F9E9F1 216.00000858306885deg, #F3F4FF 288.0000042915344deg, #E8F4FB 360deg);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subcontainer{
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    background-color: #FFF;
+    width: 30%;
+    height: 364px;
+    border-radius: 4px;
+    filter: drop-shadow(0px 4px 21.299999237060547px rgba(0, 0, 0, 0.25));
+    flex-direction: column;
+}
+.login-title h2{
+    font-family: 'Volkhov', serif;
+}
+
+.custom-button{
+    border-radius: 15px;
+background: linear-gradient(235deg, #EBF9FB -14.45%, rgba(252, 240, 247, 0.76) -1.82%, rgba(245, 212, 232, 0.45) 18.15%, rgba(164, 175, 214, 0.27) 64.07%, rgba(46, 217, 63, 0.00) 103.23%);
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.fas {
+color: white;
+font-size: x-large;
+margin-left: 5px;
+margin-top: 4px;
+}

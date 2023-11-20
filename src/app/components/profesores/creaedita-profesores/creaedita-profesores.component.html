@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <div class="subcontainer">
+
+        <h2>Registro de profesores</h2>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>id</mat-label>
+            <input matInput placeholder="id" formControlName="id" />
+          </mat-form-field>
+  
+          <br />
+  
+          <mat-form-field class="example-full-width" >
+            <mat-label>codProfesor</mat-label>
+            <input
+              matInput
+              placeholder="codProfesor"
+              formControlName="codProfesor"
+            />
+          </mat-form-field>
+  
+          <br />
+  
+          <mat-form-field class="example-full-width" >
+            <mat-label>nombre</mat-label>
+            <input matInput placeholder="nombre" formControlName="nombre" />
+            <mat-error
+              *ngIf="obtenerControlCampo('nombre')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+  
+          <br />
+  
+          <mat-form-field class="example-full-width" >
+            <mat-label>apellido</mat-label>
+            <input matInput placeholder="apellido" formControlName="apellido" />
+            <mat-error
+              *ngIf="obtenerControlCampo('apellido')?.errors?.['required']"
+            >
+              El apellido es obligatorio.
+            </mat-error>
+          </mat-form-field>
+  
+          <br />
+  
+          <mat-form-field appearance="fill" class="example-full-width">
+          <input
+            matInput
+            placeholder="Ingrese fecha de nacimiento"
+            [matDatepicker]="picker"
+            formControlName="fechanac"
+            [max]="maxFecha"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error
+            *ngIf="obtenerControlCampo('fechanac')?.errors?.['required']"
+          >
+            La fecha de nacimiento es obligatoria.
+          </mat-error>
+        </mat-form-field>
+  
+        <br />
+  
+        <mat-form-field class="example-full-width" >
+          <mat-label>Especialidad</mat-label>
+          <input matInput placeholder="especialidad" formControlName="especialidad" />
+          <mat-error
+            *ngIf="obtenerControlCampo('especialidad')?.errors?.['required']"
+          >
+            La especialidad es obligatoria.
+          </mat-error>
+        </mat-form-field>
+  
+        <br />
+        
+        <mat-form-field class="example-full-width" >
+          <mat-label>Grado</mat-label>
+          <input matInput placeholder="grado" formControlName="grado" />
+          <mat-error
+            *ngIf="obtenerControlCampo('grado')?.errors?.['required']"
+          >
+            El grado es obligatorio.
+          </mat-error>
+        </mat-form-field>
+  
+        <br />
+  
+        <mat-form-field class="example-full-width" >
+          <mat-label>Genero</mat-label>
+          <mat-select formControlName="genero">
+            <mat-option *ngFor="let t of genero" [value]="t.value">
+              {{ t.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="obtenerControlCampo('genero')?.errors?.['required']">
+            Debe seleccionar su genero
+          </mat-error>
+        </mat-form-field>
+  
+        <br />
+  
+        <mat-form-field class="example-full-width" >
+          <mat-label>Años Experiencia</mat-label>
+          <input matInput placeholder="aniosexperiencia" formControlName="aniosexperiencia" />
+          <mat-error
+            *ngIf="obtenerControlCampo('aniosexperiencia')?.errors?.['required']"
+          >
+            Los años de experiencia son obligatorios.
+          </mat-error>
+        </mat-form-field>
+  
+        <br />
+  
+          <button mat-raised-button class="aceptar" color="primary">Aceptar</button>
+          <button mat-raised-button class="cancelar" color="warn" routerLink="/components/profesores">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

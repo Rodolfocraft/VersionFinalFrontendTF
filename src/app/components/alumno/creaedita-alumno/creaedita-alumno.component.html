@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="login-title">Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <div class="subcontainer">
+
+        <h2>Registro de Alumno</h2>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>id</mat-label>
+            <input matInput placeholder="id" formControlName="id" />
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Universidad</mat-label>
+            <mat-select formControlName="universidad">
+              <mat-option *ngFor="let u of listauniversidades" [value]="u.id">
+                {{ u.nombreUniversidad }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('universidad')?.errors?.['required']"
+            >
+              La universidad es obligatoria.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Usuario</mat-label>
+            <mat-select formControlName="usuario">
+              <mat-option *ngFor="let u of listausuario" [value]="u.id">
+                {{ u.nombre }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('usuario')?.errors?.['required']"
+            >
+              El usuario es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Carrera</mat-label>
+            <mat-select formControlName="carrera">
+              <mat-option *ngFor="let c of listacarrera" [value]="c.id">
+                {{ c.nombreCarreraProfesional }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('carrera')?.errors?.['required']"
+            >
+              La carrera es obligatoria.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <mat-form-field class="example-full-width" >
+            <mat-label>Ciclo</mat-label>
+            <input matInput placeholder="ciclo" formControlName="ciclo" />
+            <mat-error
+              *ngIf="obtenerControlCampo('ciclo')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+  
+          </mat-form-field>
+          <br />
+          <mat-form-field class="example-full-width" >
+            <mat-label>AñoIngreso</mat-label>
+            <input matInput placeholder="anioingreso" formControlName="anioingreso" />
+            <mat-error
+              *ngIf="obtenerControlCampo('anioingreso')?.errors?.['required']"
+            >
+              El año de ingreso es obligatorio.
+            </mat-error>
+  
+          </mat-form-field>
+          <br />
+          <mat-form-field class="example-full-width" >
+            <mat-label>DNI</mat-label>
+            <input matInput placeholder="dni" formControlName="dni" />
+            <mat-error
+              *ngIf="obtenerControlCampo('dni')?.errors?.['required']"
+            >
+              El dni es obligatorio.
+            </mat-error>
+  
+          </mat-form-field>
+          <br />
+          <button mat-raised-button class="aceptar" color="primary">Aceptar</button>
+          <button mat-raised-button class="cancelar" color="warn" routerLink="/components/alumno">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
