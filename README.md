@@ -1,27 +1,51 @@
-# TfFrontend
+# 📝 Professor Rating System Frontend with Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+This project is the frontend for a professor rating system developed with Angular. It works in conjunction with the backend to provide a seamless experience for students to rate professors, manage their accounts, and view detailed rating reports. Below are the main functionalities of the frontend system.
 
-## Development server
+## 📋 Main Functionalities
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Professor Listing
 
-## Code scaffolding
+The frontend displays a list of professors, allowing students to view detailed information and access rating options.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Register Professors
 
-## Build
+The frontend provides an interface for adding new professors to the system.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### User Registration and Authentication
 
-## Running unit tests
+Users can register for new accounts and securely manage their passwords through the frontend interface.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Rate Professors
 
-## Running end-to-end tests
+Students can submit ratings for professors based on various criteria, providing valuable feedback directly through the frontend.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Rating Reports
 
-## Further help
+The frontend generates and displays rating reports in graphical formats, allowing users to visualize and analyze the ratings and feedback.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🛠️ Using the Project
+
+### Installing Dependencies
+
+Open the project in Visual Studio Code and run the following command in the terminal:
+
+npm install
+
+### Running the Project
+
+Use either of the following commands in the Visual Studio Code terminal to run the project:
+
+ng serve
+
+or
+
+ng s
+
+The application will be available at [http://localhost:4200/](http://localhost:4200/). Ensure the backend is running to fully utilize the functionalities.
+
+---
+
+I hope you enjoy this web application.
+
+Developed by Gustavo Farje
